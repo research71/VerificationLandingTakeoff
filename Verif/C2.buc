@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
+    <org.eventb.core.extendsContext name="'" org.eventb.core.target="C1"/>
+    <org.eventb.core.carrierSet name="(" org.eventb.core.identifier="CP"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name=")" org.eventb.core.identifier="pmCP"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*" org.eventb.core.identifier="CPRunway"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="+" org.eventb.core.identifier="pmCPDist"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="," org.eventb.core.identifier="FinalDuration"/>
+    <org.eventb.core.axiom name="-" org.eventb.core.label="axm1" org.eventb.core.predicate="pmCP ∈ PM ↔ CP ∧ dom(pmCP) = PM ∧ ran(pmCP) = CP "/>
+    <org.eventb.core.axiom name="." org.eventb.core.label="axm2" org.eventb.core.predicate="CPRunway ∈ CP → RUNWAY   "/>
+    <org.eventb.core.axiom name="/" org.eventb.core.label="axm3" org.eventb.core.predicate="pmCPDist ∈ pmCP → ℕ "/>
+    <org.eventb.core.axiom name="0" org.eventb.core.label="axm4" org.eventb.core.predicate="FinalDuration ∈ CP → ℕ1 "/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="1" org.eventb.core.identifier="activeRunways"/>
+    <org.eventb.core.axiom name="2" org.eventb.core.label="axm5" org.eventb.core.predicate="activeRunways ⊆ RUNWAY ∧ activeRunways ≠ ∅"/>
+    <org.eventb.core.axiom name="3" org.eventb.core.label="axm6" org.eventb.core.predicate="∀ pm · pm ∈ PM ⇒ CPRunway[pmCP[{pm}]] ∩ activeRunways ≠ ∅"/>
+</org.eventb.core.contextFile>

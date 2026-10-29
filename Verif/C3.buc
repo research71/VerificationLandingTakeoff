@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
+    <org.eventb.core.extendsContext name="'" org.eventb.core.target="C2"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="(" org.eventb.core.identifier="DepDepSep"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name=")" org.eventb.core.identifier="RwySep"/>
+    <org.eventb.core.axiom name="*" org.eventb.core.label="axm1" org.eventb.core.predicate="DepDepSep ∈ WTC × WTC → ℕ1"/>
+    <org.eventb.core.axiom name="," org.eventb.core.label="axm2" org.eventb.core.predicate="∀ x,y,z · x ∈ WTC ∧ y ∈ WTC ∧ z ∈ WTC&#13;&#10;       ⇒ DepDepSep(x ↦ z) ≤ DepDepSep(x ↦ y) + DepDepSep(y ↦ z)"/>
+    <org.eventb.core.axiom name="-" org.eventb.core.label="axm3" org.eventb.core.predicate="RwySep ∈ ℕ1"/>
+</org.eventb.core.contextFile>

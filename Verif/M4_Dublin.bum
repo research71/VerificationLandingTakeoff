@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd;de.stups.hhu.rodinmetapredicates.mchBase" version="5">
+    <org.eventb.core.refinesMachine name="'" org.eventb.core.target="M4"/>
+    <org.eventb.core.seesContext name=")v" org.eventb.core.target="C4_Dublin"/>
+    <org.eventb.core.variable name="S" org.eventb.core.identifier="aircrafts_in_TMA"/>
+    <org.eventb.core.variable name="]" org.eventb.core.identifier="statusof"/>
+    <org.eventb.core.variable name="m" org.eventb.core.identifier="curr_RW_status"/>
+    <org.eventb.core.variable name="n" org.eventb.core.identifier="curr_RWL_status"/>
+    <org.eventb.core.variable name="'7" org.eventb.core.identifier="clearanceL"/>
+    <org.eventb.core.variable name="'K" org.eventb.core.identifier="current_time"/>
+    <org.eventb.core.variable name="'V" org.eventb.core.identifier="brandof"/>
+    <org.eventb.core.variable name="(J" org.eventb.core.identifier="ETA"/>
+    <org.eventb.core.variable name="(C" org.eventb.core.identifier="landingQueue"/>
+    <org.eventb.core.variable name="(Y" org.eventb.core.identifier="Threshold"/>
+    <org.eventb.core.variable name="(d" org.eventb.core.identifier="entryTMAOf"/>
+    <org.eventb.core.variable name="(f" org.eventb.core.identifier="plannedRunway"/>
+    <org.eventb.core.variable name="(y" org.eventb.core.identifier="legOf"/>
+    <org.eventb.core.variable name=")(" org.eventb.core.identifier="lastEntryBrand"/>
+    <org.eventb.core.variable name=")," org.eventb.core.identifier="lastLegTime"/>
+    <org.eventb.core.variable name=")-" org.eventb.core.identifier="lastLegBrand"/>
+    <org.eventb.core.variable name=")2" org.eventb.core.identifier="legIndex"/>
+    <org.eventb.core.variable name=")4" org.eventb.core.identifier="legEntryTime"/>
+    <org.eventb.core.variable name=");" org.eventb.core.identifier="legPointTime"/>
+    <org.eventb.core.variable name=")?" org.eventb.core.identifier="lastMergeBrand"/>
+    <org.eventb.core.variable name=")@" org.eventb.core.identifier="lastMergeTime"/>
+    <org.eventb.core.variable name=")K" org.eventb.core.identifier="mergeTime"/>
+    <org.eventb.core.variable name=")P" org.eventb.core.identifier="lastEntryTime"/>
+    <org.eventb.core.variable name=")Y" org.eventb.core.identifier="cpOf"/>
+    <org.eventb.core.variable name=")Z" org.eventb.core.identifier="cpTime"/>
+    <org.eventb.core.variable name=")[" org.eventb.core.identifier="lastcpTime"/>
+    <org.eventb.core.variable name=")\" org.eventb.core.identifier="lastcpBrand"/>
+    <org.eventb.core.variable name=")w" org.eventb.core.identifier="tmaEntryTime"/>
+    <org.eventb.core.variable name=")x" org.eventb.core.identifier="acLevel"/>
+    <org.eventb.core.variable name="*3" org.eventb.core.identifier="readyTime"/>
+    <org.eventb.core.variable name="*4" org.eventb.core.identifier="depTime"/>
+    <org.eventb.core.variable name="*5" org.eventb.core.identifier="lastDepTime"/>
+    <org.eventb.core.variable name="*6" org.eventb.core.identifier="lastDepBrand"/>
+    <org.eventb.core.variable name="*F" org.eventb.core.identifier="depRwy"/>
+    <org.eventb.core.variable name="*G" org.eventb.core.identifier="clearanceT"/>
+    <org.eventb.core.variable name="*I" org.eventb.core.identifier="lastlandingBrand"/>
+    <org.eventb.core.variable name="*K" org.eventb.core.identifier="TouchdownTime"/>
+    <org.eventb.core.variable name="*L" org.eventb.core.identifier="lastlandingtime"/>
+    <org.eventb.core.event name="*M" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION"/>
+    <org.eventb.core.event name="*N" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Entry_in_TMA">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Entry_in_TMA"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="*O" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Entry_Leg">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Entry_Leg"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="*P" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Direct_To">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Direct_To"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="*Q" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Move_On_Leg">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Move_On_Leg"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="*R" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Leg_End_To_Merge">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Leg_End_To_Merge"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="*S" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Schedule_Arrival">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Schedule_Arrival"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="*T" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Ready_Landing">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Ready_Landing"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="*U" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Landing_Verification">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Landing_Verification"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="*V" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Touchdown">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Touchdown"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="*W" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Terminating_Landing">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Terminating_Landing"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="*X" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="tick_tock">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="tick_tock"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="*Y" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Takeoff_Preparing">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Takeoff_Preparing"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="*Z" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Takeoff_Verification">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Takeoff_Verification"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="*[" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Start_takingoff">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Start_takingoff"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="*\" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Terminating_takingoff">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Terminating_takingoff"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="*]" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Departing">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Departing"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>

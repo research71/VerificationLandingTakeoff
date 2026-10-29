@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd;de.stups.hhu.rodinmetapredicates.mchBase" version="5">
+    <org.eventb.core.event name="'" org.eventb.core.comment="Paper: ENV-3 (no aircraft, runways available, lights OFF)" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="3" org.eventb.core.assignment="aircrafts_in_TMA ≔ ∅" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="6" org.eventb.core.assignment="statusof ≔ ∅" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="7" org.eventb.core.assignment="curr_RW_status ≔ RUNWAY × {Available}" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="8" org.eventb.core.assignment="curr_RWL_status ≔ RUNWAY × {OFF}" org.eventb.core.label="act4"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="'+" org.eventb.core.comment="Entry of an aircraft into the TMA (status Blocked)" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Entry_in_TMA">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="aircraft"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="aircraft ∈ AIRCRAFTS ∧ aircraft ∉ aircrafts_in_TMA"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="aircraft ∉ dom(statusof)"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="aircrafts_in_TMA≔ aircrafts_in_TMA ∪ {aircraft}" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="statusof(aircraft) ≔ Blocked" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="S" org.eventb.core.identifier="aircrafts_in_TMA"/>
+    <org.eventb.core.invariant name="T" org.eventb.core.label="inv1" org.eventb.core.predicate="aircrafts_in_TMA ⊆ AIRCRAFTS"/>
+    <org.eventb.core.invariant name="U" org.eventb.core.comment="Paper: FUN-1 (status of each aircraft)" org.eventb.core.label="inv2" org.eventb.core.predicate="statusof ∈ aircrafts_in_TMA → STATUS"/>
+    <org.eventb.core.event name="V" org.eventb.core.comment="Blocked -&gt; ScheduledL" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Schedule_Arrival">
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="aircraft"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="statusof(aircraft)≔ ScheduledL" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="." org.eventb.core.label="grd1" org.eventb.core.predicate="aircraft ∈ aircrafts_in_TMA ∧ statusof(aircraft) = Blocked"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="'&gt;" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Ready_Landing">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="aircraft"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="aircraft ∈ aircrafts_in_TMA ∧ statusof(aircraft)=ScheduledL"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="statusof(aircraft)≔ ReadyL" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="'0" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Landing_Verification">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="aircraft"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="aircraft ∈ aircrafts_in_TMA ∧ statusof(aircraft) = ReadyL"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="statusof(aircraft) ≔ ExecutedL" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="'=" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Touchdown">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="aircraft"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="runway"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="aircraft ∈ aircrafts_in_TMA ∧ statusof(aircraft) = ExecutedL"/>
+        <org.eventb.core.guard name="+" org.eventb.core.comment="Paper: SAF-2 (runway available and lights OFF)" org.eventb.core.label="grd2" org.eventb.core.predicate="runway ∈ RUNWAY ∧ curr_RW_status(runway) = Available ∧ curr_RWL_status(runway) = OFF"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="statusof(aircraft) ≔ Landing" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="/" org.eventb.core.assignment="curr_RW_status(runway) ≔ Unavailable" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="0" org.eventb.core.assignment="curr_RWL_status(runway) ≔ ON" org.eventb.core.label="act3"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="X" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Terminating_Landing">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="aircraft"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="aircraft ∈ aircrafts_in_TMA ∧ statusof(aircraft) = Landing"/>
+        <org.eventb.core.guard name="4" org.eventb.core.label="grd2" org.eventb.core.predicate="runway ∈ RUNWAY ∧ curr_RW_status(runway) = Unavailable ∧ curr_RWL_status(runway) = ON "/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="statusof(aircraft) ≔ TerminatedL" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="/" org.eventb.core.assignment="curr_RW_status(runway) ≔ Available" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="0" org.eventb.core.assignment="curr_RWL_status(runway) ≔ OFF" org.eventb.core.label="act3"/>
+        <org.eventb.core.parameter name="3" org.eventb.core.identifier="runway"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="]" org.eventb.core.identifier="statusof"/>
+    <org.eventb.core.variable name="m" org.eventb.core.identifier="curr_RW_status"/>
+    <org.eventb.core.variable name="n" org.eventb.core.identifier="curr_RWL_status"/>
+    <org.eventb.core.invariant name="p" org.eventb.core.label="inv3" org.eventb.core.predicate="curr_RW_status ∈ RUNWAY → RW_STATUES"/>
+    <org.eventb.core.invariant name="q" org.eventb.core.comment="Paper: ENV-2 (lights of each runway)" org.eventb.core.label="inv4" org.eventb.core.predicate="curr_RWL_status ∈ RUNWAY→ RWL_STATUES "/>
+    <org.eventb.core.invariant name="r" org.eventb.core.comment="Paper: SAF-1 (runway unavailable =&gt; lights ON)" org.eventb.core.label="inv5" org.eventb.core.predicate="∀ r · r ∈ RUNWAY ⇒&#13;&#10;(curr_RW_status(r) = Unavailable ⇒ curr_RWL_status(r) = ON)"/>
+    <org.eventb.core.seesContext name="'(" org.eventb.core.target="C0"/>
+    <org.eventb.core.invariant name="'*" org.eventb.core.comment="Paper: SAF-1 (runway available =&gt; lights OFF)" org.eventb.core.label="inv6" org.eventb.core.predicate="∀ r · r ∈ RUNWAY ⇒&#13;&#10;(curr_RW_status(r) = Available ⇒ curr_RWL_status(r) = OFF)"/>
+    <org.eventb.core.event name="'?" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Takeoff_Preparing ">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="aircraft"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="aircraft ∈ aircrafts_in_TMA ∧ statusof(aircraft) = TerminatedL"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="statusof(aircraft) ≔ ReadyT " org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="'C" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Takeoff_Verification">
+        <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="aircraft ∈ aircrafts_in_TMA ∧ statusof(aircraft) = ReadyT"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="statusof(aircraft) ≔ ExecutedT" org.eventb.core.label="act1"/>
+        <org.eventb.core.parameter name=")" org.eventb.core.identifier="aircraft"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="'@" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Start_takingoff">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="aircraft"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="runway"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="aircraft ∈ aircrafts_in_TMA ∧ statusof(aircraft) = ExecutedT"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="runway ∈ RUNWAY ∧ curr_RW_status(runway) = Available ∧ curr_RWL_status(runway) = OFF"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="statusof(aircraft) ≔ Takingoff" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="curr_RW_status(runway) ≔ Unavailable" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="curr_RWL_status(runway) ≔ ON" org.eventb.core.label="act3"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="'A" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Terminating_takingoff">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="runway"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="aircraft"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="aircraft ∈ aircrafts_in_TMA ∧ statusof(aircraft) = Takingoff"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="runway ∈ RUNWAY ∧ curr_RW_status(runway) = Unavailable ∧ curr_RWL_status(runway) = ON"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="statusof(aircraft) ≔ TerminatedT" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="curr_RW_status(runway) ≔ Available " org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="curr_RWL_status(runway) ≔ OFF" org.eventb.core.label="act3"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="'B" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Departing">
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="aircraft"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="aircraft ∈ aircrafts_in_TMA ∧ statusof(aircraft) = TerminatedT"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="aircrafts_in_TMA ≔ aircrafts_in_TMA ∖ {aircraft}" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="statusof ≔ {aircraft} ⩤ statusof" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>

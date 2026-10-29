@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
+    <org.eventb.core.extendsContext name="9" org.eventb.core.target="C0"/>
+    <org.eventb.core.axiom name="'k" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(WTC, {Light}, {Medium},{Heavy})"/>
+    <org.eventb.core.carrierSet name="=" org.eventb.core.identifier="WTC"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="&gt;" org.eventb.core.identifier="Separation_time"/>
+    <org.eventb.core.axiom name="?" org.eventb.core.label="axm2" org.eventb.core.predicate="Separation_time ∈ WTC × WTC → ℕ"/>
+    <org.eventb.core.axiom name="*z" org.eventb.core.label="axm3" org.eventb.core.predicate="∀ x,y,z · x ∈ WTC ∧ y ∈ WTC ∧ z ∈ WTC ⇒ Separation_time(x ↦ z) ≤ Separation_time(x ↦ y) + Separation_time(y ↦ z)"/>
+    <org.eventb.core.axiom name="(i" org.eventb.core.label="axm4" org.eventb.core.predicate="finite(PMS) ∧ finite(PM)∧PmsMerge ∈ PMS ⤖ PM"/>
+    <org.eventb.core.axiom name="(j" org.eventb.core.label="axm5" org.eventb.core.predicate="finite(SLEGS) ∧legPMS ∈ SLEGS → PMS ∧ (∀p·p ∈ PMS ⇒ card(legPMS∼[{p}]) = 2)"/>
+    <org.eventb.core.axiom name="(r" org.eventb.core.label="axm6" org.eventb.core.predicate="leglength ∈ SLEGS → ℕ1 ∧ legSeq ∈ SLEGS → (ℕ1 ⇸ WAYPOINT)"/>
+    <org.eventb.core.axiom name="(q" org.eventb.core.label="axm7" org.eventb.core.predicate="∀ l · l ∈ SLEGS ⇒ legSeq(l) ∈ 1‥leglength(l)↣ WAYPOINT "/>
+    <org.eventb.core.axiom name="*S" org.eventb.core.label="axm8" org.eventb.core.predicate="∀ l1,l2 ·l1 ∈ SLEGS ∧ l2 ∈ SLEGS ∧ l1 ≠ l2 ⇒ ran(legSeq(l1))∩ ran(legSeq(l2))= ∅"/>
+    <org.eventb.core.axiom name="(u" org.eventb.core.label="axm9" org.eventb.core.predicate="wppos ∈ WAYPOINT → (ℤ × ℤ) × ℕ1 ∧ pmpos ∈ PM → (ℤ × ℤ) × ℕ1"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="'g" org.eventb.core.identifier="Light"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="'h" org.eventb.core.identifier="Medium"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="'i" org.eventb.core.identifier="Heavy"/>
+    <org.eventb.core.carrierSet name="(." org.eventb.core.identifier="ENTRYTMA"/>
+    <org.eventb.core.carrierSet name="(h" org.eventb.core.identifier="PMS"/>
+    <org.eventb.core.carrierSet name="(l" org.eventb.core.identifier="PM"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="(m" org.eventb.core.identifier="PmsMerge"/>
+    <org.eventb.core.carrierSet name="(p" org.eventb.core.identifier="SLEGS"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="(s" org.eventb.core.identifier="legPMS"/>
+    <org.eventb.core.axiom name="*?" org.eventb.core.label="axm10" org.eventb.core.predicate="wpDistMerge ∈ WAYPOINT → ℕ1 ∧&#13;&#10;        (∀ l,w,x,y,z,mx,my,mz,dx,dy · l ∈ SLEGS ∧ w ∈ WAYPOINT ∧ w ∈ ran(legSeq(l))&#13;&#10;           ∧ (w ↦ ((x ↦ y) ↦ z)) ∈ wppos ∧ (PmsMerge(legPMS(l)) ↦ ((mx ↦ my) ↦ mz)) ∈ pmpos&#13;&#10;           ∧ dx = x − mx ∧ dy = y − my&#13;&#10;         ⇒ wpDistMerge(w) ∗ wpDistMerge(w) ≤ dx∗dx + dy∗dy&#13;&#10;           ∧ dx∗dx + dy∗dy &lt; (wpDistMerge(w) + 1) ∗ (wpDistMerge(w) + 1))"/>
+    <org.eventb.core.carrierSet name=")." org.eventb.core.identifier="WAYPOINT"/>
+    <org.eventb.core.axiom name=")4" org.eventb.core.label="axm11" org.eventb.core.predicate="legFL ∈ SLEGS → ℕ1 ∧&#13;&#10;        (∀ l,w,p,z · l ∈ SLEGS ∧ w ∈ ran(legSeq(l)) ∧ (w ↦ (p ↦ z)) ∈ wppos ⇒ z = legFL(l))"/>
+    <org.eventb.core.axiom name=")Z" org.eventb.core.label="axm12" org.eventb.core.predicate="VSep ∈ ℕ1 ∧&#13;&#10;        (∀ l1,l2,w1,w2,p1,z1,p2,z2 · l1 ∈ SLEGS ∧ l2 ∈ SLEGS ∧ l1 ≠ l2 ∧ legPMS(l1) = legPMS(l2)&#13;&#10;           ∧ w1 ∈ ran(legSeq(l1)) ∧ w2 ∈ ran(legSeq(l2))&#13;&#10;           ∧ (w1 ↦ (p1 ↦ z1)) ∈ wppos ∧ (w2 ↦ (p2 ↦ z2)) ∈ wppos&#13;&#10;         ⇒ z1 ≥ z2 + VSep ∨ z2 ≥ z1 + VSep)"/>
+    <org.eventb.core.axiom name="){" org.eventb.core.label="axm13" org.eventb.core.predicate=" ∀ l1,l2,w1,w2 · l1 ∈ SLEGS ∧ l2 ∈ SLEGS ∧ l1 ≠ l2 ∧ legPMS(l1) = legPMS(l2)&#13;&#10;           ∧ w1 ∈ WAYPOINT ∧ w2 ∈ WAYPOINT ∧ w1 ∈ ran(legSeq(l1)) ∧ w2 ∈ ran(legSeq(l2))&#13;&#10;           ∧ wpDistMerge(w1) &lt; wpDistMerge(w2)&#13;&#10;         ⇒ legFL(l1) &gt; legFL(l2)"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name=")|" org.eventb.core.identifier="legSeq"/>
+    <org.eventb.core.axiom name=")}" org.eventb.core.label="axm14" org.eventb.core.predicate="TMAToLeg ∈ ENTRYTMA → SLEGS ∧ entryToWaypoint ∈ ENTRYTMA → WAYPOINT"/>
+    <org.eventb.core.axiom name=")~" org.eventb.core.label="axm15" org.eventb.core.predicate="∀ e · e ∈ ENTRYTMA ⇒ (1 ↦ entryToWaypoint(e)) ∈ legSeq(TMAToLeg(e))"/>
+    <org.eventb.core.axiom name="*'" org.eventb.core.label="axm16" org.eventb.core.predicate="routeDist ∈ ENTRYTMA → ℕ1"/>
+    <org.eventb.core.axiom name="*(" org.eventb.core.label="axm23" org.eventb.core.predicate="segDist ∈ WAYPOINT × WAYPOINT ⇸ ℕ1"/>
+    <org.eventb.core.axiom name="*)" org.eventb.core.label="axm17" org.eventb.core.predicate="∀ l,i · l ∈ SLEGS ∧ i ∈ dom(legSeq(l)) ∧ i + 1 ∈ dom(legSeq(l))&#13;&#10;         ⇒ (legSeq(l)(i) ↦ legSeq(l)(i + 1)) ∈ dom(segDist)"/>
+    <org.eventb.core.axiom name="**" org.eventb.core.label="axm18" org.eventb.core.predicate="legSpeed ∈ ℕ1"/>
+    <org.eventb.core.axiom name="*," org.eventb.core.label="axm19" org.eventb.core.predicate="Separation_dist ∈ WTC × WTC → ℕ1"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*1" org.eventb.core.identifier="TMAToLeg"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*2" org.eventb.core.identifier="entryToWaypoint"/>
+    <org.eventb.core.axiom name="*4" org.eventb.core.label="axm20" org.eventb.core.predicate="∀ x,y · x ∈ WTC ∧ y ∈ WTC ⇒ Separation_time(x ↦ y) ∗ legSpeed ≥ Separation_dist(x ↦ y) ∗ 360"/>
+    <org.eventb.core.axiom name="*V" org.eventb.core.label="axm21" org.eventb.core.predicate=" MergeBuffer ∈ ℕ"/>
+    <org.eventb.core.axiom name="*U" org.eventb.core.label="axm22" org.eventb.core.predicate="MinLat ∈ ℕ1 ∧&#13;&#10;        (∀ l1,l2 · l1 ∈ SLEGS ∧ l2 ∈ SLEGS ∧ l1 ≠ l2 ∧ legPMS(l1) = legPMS(l2)&#13;&#10;         ⇒ (∀ w1,w2 · w1 ∈ WAYPOINT ∧ w2 ∈ WAYPOINT ∧ w1 ∈ ran(legSeq(l1)) ∧ w2 ∈ ran(legSeq(l2))&#13;&#10;               ⇒ wpDistMerge(w2) ≥ wpDistMerge(w1) + MinLat)&#13;&#10;          ∨ (∀ w1,w2 · w1 ∈ WAYPOINT ∧ w2 ∈ WAYPOINT ∧ w1 ∈ ran(legSeq(l1)) ∧ w2 ∈ ran(legSeq(l2))&#13;&#10;               ⇒ wpDistMerge(w1) ≥ wpDistMerge(w2) + MinLat))"/>
+    <org.eventb.core.axiom name="*T" org.eventb.core.label="axm24" org.eventb.core.predicate="SpeedbeforeLeg ∈ ℕ1"/>
+    <org.eventb.core.axiom name="*7" org.eventb.core.label="axm25" org.eventb.core.predicate="∀ l1,l2 · l1 ∈ SLEGS ∧ l2 ∈ SLEGS ∧ l1 ≠ l2 ∧ legPMS(l1) = legPMS(l2)&#13;&#10;         ⇒ legFL(l1) ≥ legFL(l2) + VSep ∨ legFL(l2) ≥ legFL(l1) + VSep"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*:" org.eventb.core.identifier="legFL"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*A" org.eventb.core.identifier="wppos"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*B" org.eventb.core.identifier="pmpos"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*C" org.eventb.core.identifier="VSep"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*D" org.eventb.core.identifier="MinLat"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*E" org.eventb.core.identifier="leglength"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*F" org.eventb.core.identifier="wpDistMerge"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*G" org.eventb.core.identifier="legSpeed"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*J" org.eventb.core.identifier="segDist"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*L" org.eventb.core.identifier="Separation_dist"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*P" org.eventb.core.identifier="MergeBuffer"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*R" org.eventb.core.identifier="routeDist"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*w" org.eventb.core.identifier="SpeedbeforeLeg"/>
+</org.eventb.core.contextFile>

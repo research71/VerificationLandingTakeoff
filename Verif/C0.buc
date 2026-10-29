@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
+    <org.eventb.core.carrierSet name="'" org.eventb.core.identifier="AIRCRAFTS"/>
+    <org.eventb.core.axiom name="E" org.eventb.core.label="axm1" org.eventb.core.predicate="finite(AIRCRAFTS)"/>
+    <org.eventb.core.axiom name="m" org.eventb.core.comment="Paper: ENV-1 (at least one runway)" org.eventb.core.label="axm2" org.eventb.core.predicate="finite(RUNWAY) ∧ card(RUNWAY)≥1"/>
+    <org.eventb.core.carrierSet name=":" org.eventb.core.identifier="STATUS"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="&gt;" org.eventb.core.identifier="Blocked"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="?" org.eventb.core.identifier="ReadyL"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="@" org.eventb.core.identifier="Landing"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="A" org.eventb.core.identifier="TerminatedL"/>
+    <org.eventb.core.axiom name="D" org.eventb.core.comment="Paper: FUN-1 (aircraft statuses)" org.eventb.core.label="axm3" org.eventb.core.predicate="partition(&#13;&#10;    STATUS,&#13;&#10;    {Blocked},&#13;&#10;    {ScheduledL},&#13;&#10;    {ReadyL},&#13;&#10;    {ExecutedL},&#13;&#10;    {Landing},&#13;&#10;    {TerminatedL},{ReadyT}, {ExecutedT},{Takingoff},{TerminatedT})&#13;&#10;"/>
+    <org.eventb.core.carrierSet name="K" org.eventb.core.identifier="RW_STATUES"/>
+    <org.eventb.core.carrierSet name="L" org.eventb.core.identifier="RWL_STATUES"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="M" org.eventb.core.identifier="Available"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="N" org.eventb.core.identifier="Unavailable"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="O" org.eventb.core.identifier="ON"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="P" org.eventb.core.identifier="OFF"/>
+    <org.eventb.core.axiom name="Q" org.eventb.core.label="axm4" org.eventb.core.predicate="partition(RW_STATUES,{Available},{Unavailable})"/>
+    <org.eventb.core.axiom name="R" org.eventb.core.comment="Paper: ENV-2 (runway lights ON or OFF)" org.eventb.core.label="axm5" org.eventb.core.predicate="partition(RWL_STATUES,{ON},{OFF})"/>
+    <org.eventb.core.carrierSet name="T" org.eventb.core.identifier="RUNWAY"/>
+    <org.eventb.core.axiom name="Z" org.eventb.core.label="axm6" org.eventb.core.predicate="∀x,y· x ∈ ℕ ∧ y∈ ℕ1 ⇒ x=x mod y+x÷y∗y" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="[" org.eventb.core.label="axm7" org.eventb.core.predicate="∀a,b· a∈ ℕ ∧ b∈ ℕ ∧ a≤b ⇒a÷60≤b÷60" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="\" org.eventb.core.label="axm8" org.eventb.core.predicate="∀a,b,c· a∈ ℕ ∧ b∈ ℕ ∧ c∈ ℕ ∧ a≤b ⇒a+c≤b+c" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="^" org.eventb.core.label="axm9" org.eventb.core.predicate="∀a,b,c· a∈ ℕ ∧ b∈ ℕ ∧ c∈ ℕ1∧ a≤b ⇒c∗a≤c∗b" org.eventb.core.theorem="true"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="g" org.eventb.core.identifier="ExecutedL"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="i" org.eventb.core.identifier="ScheduledL"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="j" org.eventb.core.identifier="ReadyT"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="k" org.eventb.core.identifier="Takingoff"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="l" org.eventb.core.identifier="TerminatedT"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="n" org.eventb.core.identifier="ExecutedT"/>
+</org.eventb.core.contextFile>

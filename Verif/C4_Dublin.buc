@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
+    <org.eventb.core.extendsContext name="'" org.eventb.core.target="C3"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="(" org.eventb.core.identifier="RWY28L"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name=")" org.eventb.core.identifier="PMS_D"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*" org.eventb.core.identifier="LAPMO"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="+" org.eventb.core.identifier="LEG_N"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="," org.eventb.core.identifier="LEG_S"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="-" org.eventb.core.identifier="KERAV"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="." org.eventb.core.identifier="KOGAX"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="/" org.eventb.core.identifier="KUDOM"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="0" org.eventb.core.identifier="DW814"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="1" org.eventb.core.identifier="DW815"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="2" org.eventb.core.identifier="DW816"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="3" org.eventb.core.identifier="SORIN"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="4" org.eventb.core.identifier="SIVNA"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="5" org.eventb.core.identifier="SUGAD"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="6" org.eventb.core.identifier="DW704"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="7" org.eventb.core.identifier="DW705"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="8" org.eventb.core.identifier="DW706"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="9" org.eventb.core.identifier="BAGSO"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name=":" org.eventb.core.identifier="BAMLI"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name=";" org.eventb.core.identifier="BOYNE"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="=" org.eventb.core.identifier="NIMAT"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="&gt;" org.eventb.core.identifier="OLAPO"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="?" org.eventb.core.identifier="BUNED"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="@" org.eventb.core.identifier="OSGAR"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="A" org.eventb.core.identifier="NIRIF"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="B" org.eventb.core.identifier="SUTEX"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="C" org.eventb.core.identifier="VATRY"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="D" org.eventb.core.identifier="LAPMO_CP"/>
+    <org.eventb.core.axiom name="E" org.eventb.core.label="dub1" org.eventb.core.predicate="partition(RUNWAY, {RWY28L}) ∧ activeRunways = {RWY28L}"/>
+    <org.eventb.core.axiom name="F" org.eventb.core.label="dub2" org.eventb.core.predicate="partition(PMS, {PMS_D}) ∧ partition(PM, {LAPMO}) ∧ PmsMerge = {PMS_D ↦ LAPMO}"/>
+    <org.eventb.core.axiom name="G" org.eventb.core.label="dub3" org.eventb.core.predicate="partition(SLEGS, {LEG_N}, {LEG_S}) ∧ legPMS = {LEG_N ↦ PMS_D, LEG_S ↦ PMS_D}"/>
+    <org.eventb.core.axiom name="H" org.eventb.core.label="dub4" org.eventb.core.predicate="partition(WAYPOINT, {KERAV}, {KOGAX}, {KUDOM}, {DW814}, {DW815}, {DW816}, {SORIN}, {SIVNA}, {SUGAD}, {DW704}, {DW705}, {DW706})"/>
+    <org.eventb.core.axiom name="I" org.eventb.core.label="dub5" org.eventb.core.predicate="leglength = {LEG_N ↦ 6, LEG_S ↦ 6} ∧ legSeq = {LEG_N ↦ {1 ↦ KERAV, 2 ↦ KOGAX, 3 ↦ KUDOM, 4 ↦ DW814, 5 ↦ DW815, 6 ↦ DW816}, LEG_S ↦ {1 ↦ SORIN, 2 ↦ SIVNA, 3 ↦ SUGAD, 4 ↦ DW704, 5 ↦ DW705, 6 ↦ DW706}}"/>
+    <org.eventb.core.axiom name="J" org.eventb.core.label="dub6" org.eventb.core.predicate="legFL = {LEG_N ↦ 80, LEG_S ↦ 70} ∧ VSep = 10 ∧ MinLat = 14"/>
+    <org.eventb.core.axiom name="K" org.eventb.core.label="dub7" org.eventb.core.predicate="pmpos = {LAPMO ↦ ((0 ↦ 0) ↦ 30)}"/>
+    <org.eventb.core.axiom name="L" org.eventb.core.label="dub8" org.eventb.core.predicate="wppos = {KERAV ↦ ((64 ↦ 135) ↦ 80), KOGAX ↦ ((110 ↦ 101) ↦ 80), KUDOM ↦ ((140 ↦ 52) ↦ 80), DW814 ↦ ((149 ↦ −4) ↦ 80), DW815 ↦ ((137 ↦ −60) ↦ 80), DW816 ↦ ((107 ↦ −104) ↦ 80), SORIN ↦ ((50 ↦ −157) ↦ 70), SIVNA ↦ ((109 ↦ −123) ↦ 70), SUGAD ↦ ((149 ↦ −68) ↦ 70), DW704 ↦ ((164 ↦ −1) ↦ 70), DW705 ↦ ((151 ↦ 66) ↦ 70), DW706 ↦ ((111 ↦ 122) ↦ 70)}"/>
+    <org.eventb.core.axiom name="M" org.eventb.core.label="dub9" org.eventb.core.predicate="wpDistMerge = {KERAV ↦ 149, KOGAX ↦ 149, KUDOM ↦ 149, DW814 ↦ 149, DW815 ↦ 149, DW816 ↦ 149, SORIN ↦ 164, SIVNA ↦ 164, SUGAD ↦ 163, DW704 ↦ 164, DW705 ↦ 164, DW706 ↦ 164}"/>
+    <org.eventb.core.axiom name="N" org.eventb.core.label="dub10" org.eventb.core.predicate="segDist = {(KERAV ↦ KOGAX) ↦ 57, (KOGAX ↦ KUDOM) ↦ 57, (KUDOM ↦ DW814) ↦ 57, (DW814 ↦ DW815) ↦ 57, (DW815 ↦ DW816) ↦ 53, (SORIN ↦ SIVNA) ↦ 69, (SIVNA ↦ SUGAD) ↦ 69, (SUGAD ↦ DW704) ↦ 69, (DW704 ↦ DW705) ↦ 69, (DW705 ↦ DW706) ↦ 69}"/>
+    <org.eventb.core.axiom name="O" org.eventb.core.label="dub11" org.eventb.core.predicate="legSpeed = 220 ∧ SpeedbeforeLeg = 250 ∧ MergeBuffer = 10"/>
+    <org.eventb.core.axiom name="P" org.eventb.core.label="dub12" org.eventb.core.predicate="partition(ENTRYTMA, {BAGSO}, {BAMLI}, {BOYNE}, {NIMAT}, {OLAPO}, {BUNED}, {NIRIF}, {OSGAR}, {SUTEX}, {VATRY})"/>
+    <org.eventb.core.axiom name="Q" org.eventb.core.label="dub13" org.eventb.core.predicate="TMAToLeg = ({BAGSO, BAMLI, BOYNE, NIMAT, OLAPO} × {LEG_N}) ∪ ({BUNED, NIRIF, OSGAR, SUTEX, VATRY} × {LEG_S})"/>
+    <org.eventb.core.axiom name="R" org.eventb.core.label="dub14" org.eventb.core.predicate="entryToWaypoint = ({BAGSO, BAMLI, BOYNE, NIMAT, OLAPO} × {KERAV}) ∪ ({BUNED, NIRIF, OSGAR, SUTEX, VATRY} × {SORIN})"/>
+    <org.eventb.core.axiom name="S" org.eventb.core.label="dub15" org.eventb.core.predicate="routeDist = {BAGSO ↦ 108, BOYNE ↦ 127, NIMAT ↦ 202, BAMLI ↦ 563, OLAPO ↦ 552, VATRY ↦ 370, NIRIF ↦ 519, SUTEX ↦ 495, OSGAR ↦ 572, BUNED ↦ 579}"/>
+    <org.eventb.core.axiom name="T" org.eventb.core.label="dub16" org.eventb.core.predicate="Separation_time = {(Light ↦ Light) ↦ 82, (Light ↦ Medium) ↦ 69, (Light ↦ Heavy) ↦ 60, (Medium ↦ Light) ↦ 131, (Medium ↦ Medium) ↦ 69, (Medium ↦ Heavy) ↦ 60, (Heavy ↦ Light) ↦ 196, (Heavy ↦ Medium) ↦ 157, (Heavy ↦ Heavy) ↦ 96}"/>
+    <org.eventb.core.axiom name="U" org.eventb.core.label="dub17" org.eventb.core.predicate="Separation_dist = {(Light ↦ Light) ↦ 25, (Light ↦ Medium) ↦ 25, (Light ↦ Heavy) ↦ 25, (Medium ↦ Light) ↦ 40, (Medium ↦ Medium) ↦ 25, (Medium ↦ Heavy) ↦ 25, (Heavy ↦ Light) ↦ 60, (Heavy ↦ Medium) ↦ 50, (Heavy ↦ Heavy) ↦ 40}"/>
+    <org.eventb.core.axiom name="V" org.eventb.core.label="dub18" org.eventb.core.predicate="partition(CP, {LAPMO_CP}) ∧ pmCP = {LAPMO ↦ LAPMO_CP} ∧ pmCPDist = {(LAPMO ↦ LAPMO_CP) ↦ 0} ∧ CPRunway = {LAPMO_CP ↦ RWY28L} ∧ FinalDuration = {LAPMO_CP ↦ 240}"/>
+    <org.eventb.core.axiom name="W" org.eventb.core.label="dub19" org.eventb.core.predicate="RwySep = 60 ∧ DepDepSep = {(Light ↦ Light) ↦ 60, (Light ↦ Medium) ↦ 60, (Light ↦ Heavy) ↦ 60, (Medium ↦ Light) ↦ 60, (Medium ↦ Medium) ↦ 60, (Medium ↦ Heavy) ↦ 60, (Heavy ↦ Light) ↦ 120, (Heavy ↦ Medium) ↦ 120, (Heavy ↦ Heavy) ↦ 120}"/>
+</org.eventb.core.contextFile>

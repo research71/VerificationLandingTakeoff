@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
+    <org.eventb.core.extendsContext name="'" org.eventb.core.target="C3"/>
+    <org.eventb.core.axiom name="(" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(RUNWAY, {RWY01L}, {RWY01R}) ∧ activeRunways = {RWY01L, RWY01R}"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name=")" org.eventb.core.identifier="RWY01L"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*" org.eventb.core.identifier="RWY01R"/>
+    <org.eventb.core.axiom name="+" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(PMS, {PMS_W}, {PMS_E}) ∧ partition(PM, {VALPU}, {INSUV}) ∧ PmsMerge = {PMS_W ↦ VALPU, PMS_E ↦ INSUV}"/>
+    <org.eventb.core.axiom name="," org.eventb.core.label="axm3" org.eventb.core.predicate="partition(SLEGS, {LEG_WN}, {LEG_WS}, {LEG_EN}, {LEG_ES}) ∧ legPMS = {LEG_WN ↦ PMS_W, LEG_WS ↦ PMS_W, LEG_EN ↦ PMS_E, LEG_ES ↦ PMS_E}"/>
+    <org.eventb.core.axiom name="-" org.eventb.core.label="axm4" org.eventb.core.predicate="partition(WAYPOINT, {GM402}, {GM405}, {GM406}, {GM404}, {GM455}, {GM410}, {GM409}, {GM408}, {GM407}, {GM403}, {GM411}, {GM413}, {GM412}, {GM454}, {GM416}, {GM417}, {GM415}, {GM414})"/>
+    <org.eventb.core.axiom name="." org.eventb.core.label="axm5" org.eventb.core.predicate="leglength = {LEG_WN ↦ 5, LEG_WS ↦ 4, LEG_EN ↦ 5, LEG_ES ↦ 4} ∧ legSeq = {LEG_WN ↦ {1 ↦ GM402, 2 ↦ GM405, 3 ↦ GM406, 4 ↦ GM404, 5 ↦ GM455}, LEG_WS ↦ {1 ↦ GM410, 2 ↦ GM409, 3 ↦ GM408, 4 ↦ GM407}, LEG_EN ↦ {1 ↦ GM403, 2 ↦ GM411, 3 ↦ GM413, 4 ↦ GM412, 5 ↦ GM454}, LEG_ES ↦ {1 ↦ GM416, 2 ↦ GM417, 3 ↦ GM415, 4 ↦ GM414}}"/>
+    <org.eventb.core.axiom name="/" org.eventb.core.label="axm6" org.eventb.core.predicate="legFL = {LEG_WN ↦ 100, LEG_WS ↦ 110, LEG_EN ↦ 100, LEG_ES ↦ 110} ∧ VSep = 10 ∧ MinLat = 8"/>
+    <org.eventb.core.axiom name="0" org.eventb.core.label="axm7" org.eventb.core.predicate="pmpos = {VALPU ↦ ((−84 ↦ −138) ↦ 50), INSUV ↦ ((9 ↦ −166) ↦ 50)}"/>
+    <org.eventb.core.axiom name="1" org.eventb.core.label="axm8" org.eventb.core.predicate="wppos = {GM402 ↦ ((−248 ↦ −43) ↦ 100), GM405 ↦ ((−270 ↦ −105) ↦ 100), GM406 ↦ ((−270 ↦ −171) ↦ 100), GM404 ↦ ((−247 ↦ −233) ↦ 100), GM455 ↦ ((−216 ↦ −272) ↦ 100), GM410 ↦ ((−198 ↦ −275) ↦ 110), GM409 ↦ ((−238 ↦ −228) ↦ 110), GM408 ↦ ((−260 ↦ −169) ↦ 110), GM407 ↦ ((−260 ↦ −107) ↦ 110), GM403 ↦ ((197 ↦ −166) ↦ 100), GM411 ↦ ((185 ↦ −231) ↦ 100), GM413 ↦ ((152 ↦ −288) ↦ 100), GM412 ↦ ((102 ↦ −331) ↦ 100), GM454 ↦ ((57 ↦ −350) ↦ 100), GM416 ↦ ((40 ↦ −343) ↦ 110), GM417 ↦ ((97 ↦ −322) ↦ 110), GM415 ↦ ((145 ↦ −282) ↦ 110), GM414 ↦ ((176 ↦ −228) ↦ 110)}"/>
+    <org.eventb.core.axiom name="2" org.eventb.core.label="axm9" org.eventb.core.predicate="wpDistMerge = {GM402 ↦ 189, GM405 ↦ 188, GM406 ↦ 188, GM404 ↦ 188, GM455 ↦ 188, GM410 ↦ 178, GM409 ↦ 178, GM408 ↦ 178, GM407 ↦ 178, GM403 ↦ 188, GM411 ↦ 187, GM413 ↦ 187, GM412 ↦ 189, GM454 ↦ 190, GM416 ↦ 179, GM417 ↦ 179, GM415 ↦ 178, GM414 ↦ 178}"/>
+    <org.eventb.core.axiom name="3" org.eventb.core.label="axm10" org.eventb.core.predicate="segDist = {(GM402 ↦ GM405) ↦ 66, (GM405 ↦ GM406) ↦ 66, (GM406 ↦ GM404) ↦ 66, (GM404 ↦ GM455) ↦ 50, (GM410 ↦ GM409) ↦ 63, (GM409 ↦ GM408) ↦ 63, (GM408 ↦ GM407) ↦ 62, (GM403 ↦ GM411) ↦ 67, (GM411 ↦ GM413) ↦ 66, (GM413 ↦ GM412) ↦ 66, (GM412 ↦ GM454) ↦ 50, (GM416 ↦ GM417) ↦ 63, (GM417 ↦ GM415) ↦ 63, (GM415 ↦ GM414) ↦ 63}"/>
+    <org.eventb.core.axiom name="4" org.eventb.core.label="axm11" org.eventb.core.predicate="legSpeed = 220 ∧ SpeedbeforeLeg = 250 ∧ MergeBuffer = 10"/>
+    <org.eventb.core.axiom name="5" org.eventb.core.label="axm12" org.eventb.core.predicate="partition(ENTRYTMA, {ADOPI}, {BELGU}, {RIPAM}, {ESEBA}, {INREX}, {LUNIP})"/>
+    <org.eventb.core.axiom name="6" org.eventb.core.label="axm13" org.eventb.core.predicate="TMAToLeg = ({ADOPI, BELGU} × {LEG_WN}) ∪ ({RIPAM} × {LEG_WS}) ∪ ({ESEBA, INREX} × {LEG_EN}) ∪ ({LUNIP} × {LEG_ES})"/>
+    <org.eventb.core.axiom name="7" org.eventb.core.label="axm14" org.eventb.core.predicate="entryToWaypoint = ({ADOPI, BELGU} × {GM402}) ∪ ({RIPAM} × {GM410}) ∪ ({ESEBA, INREX} × {GM403}) ∪ ({LUNIP} × {GM416})"/>
+    <org.eventb.core.axiom name="8" org.eventb.core.label="axm15" org.eventb.core.predicate="routeDist = {ADOPI ↦ 291, BELGU ↦ 659, RIPAM ↦ 323, ESEBA ↦ 202, INREX ↦ 673, LUNIP ↦ 271}"/>
+    <org.eventb.core.axiom name="9" org.eventb.core.label="axm16" org.eventb.core.predicate="Separation_time = {(Light ↦ Light) ↦ 82, (Light ↦ Medium) ↦ 69, (Light ↦ Heavy) ↦ 60, (Medium ↦ Light) ↦ 131, (Medium ↦ Medium) ↦ 69, (Medium ↦ Heavy) ↦ 60, (Heavy ↦ Light) ↦ 196, (Heavy ↦ Medium) ↦ 157, (Heavy ↦ Heavy) ↦ 96}"/>
+    <org.eventb.core.axiom name=":" org.eventb.core.label="axm17" org.eventb.core.predicate="Separation_dist = {(Light ↦ Light) ↦ 25, (Light ↦ Medium) ↦ 25, (Light ↦ Heavy) ↦ 25, (Medium ↦ Light) ↦ 40, (Medium ↦ Medium) ↦ 25, (Medium ↦ Heavy) ↦ 25, (Heavy ↦ Light) ↦ 60, (Heavy ↦ Medium) ↦ 50, (Heavy ↦ Heavy) ↦ 40}"/>
+    <org.eventb.core.axiom name=";" org.eventb.core.label="axm18" org.eventb.core.predicate="partition(CP, {NOSLA}, {OGRAS}) ∧ pmCP = {VALPU ↦ NOSLA, VALPU ↦ OGRAS, INSUV ↦ NOSLA, INSUV ↦ OGRAS} ∧ pmCPDist = {(VALPU ↦ NOSLA) ↦ 59, (VALPU ↦ OGRAS) ↦ 50, (INSUV ↦ NOSLA) ↦ 49, (INSUV ↦ OGRAS) ↦ 61} ∧ CPRunway = {NOSLA ↦ RWY01R, OGRAS ↦ RWY01L} ∧ FinalDuration = {NOSLA ↦ 270, OGRAS ↦ 270}"/>
+    <org.eventb.core.axiom name="=" org.eventb.core.label="axm19" org.eventb.core.predicate="RwySep = 60 ∧ DepDepSep = {(Light ↦ Light) ↦ 90, (Light ↦ Medium) ↦ 90, (Light ↦ Heavy) ↦ 90, (Medium ↦ Light) ↦ 90, (Medium ↦ Medium) ↦ 90, (Medium ↦ Heavy) ↦ 90, (Heavy ↦ Light) ↦ 90, (Heavy ↦ Medium) ↦ 90, (Heavy ↦ Heavy) ↦ 90}"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="&gt;" org.eventb.core.identifier="GM402"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="?" org.eventb.core.identifier="GM405"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="@" org.eventb.core.identifier="GM406"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="A" org.eventb.core.identifier="GM404"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="B" org.eventb.core.identifier="GM455"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="C" org.eventb.core.identifier="GM410"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="D" org.eventb.core.identifier="GM409"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="E" org.eventb.core.identifier="GM408"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="F" org.eventb.core.identifier="GM407"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="G" org.eventb.core.identifier="GM403"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="H" org.eventb.core.identifier="GM411"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="I" org.eventb.core.identifier="GM412"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="J" org.eventb.core.identifier="GM413"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="K" org.eventb.core.identifier="GM454"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="L" org.eventb.core.identifier="GM416"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="M" org.eventb.core.identifier="GM417"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="N" org.eventb.core.identifier="GM415"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="O" org.eventb.core.identifier="GM414"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="P" org.eventb.core.identifier="VALPU"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="Q" org.eventb.core.identifier="INSUV"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="R" org.eventb.core.identifier="PMS_W"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="S" org.eventb.core.identifier="PMS_E"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="T" org.eventb.core.identifier="LEG_WN"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="U" org.eventb.core.identifier="LEG_WS"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="V" org.eventb.core.identifier="LEG_EN"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="W" org.eventb.core.identifier="LEG_ES"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="X" org.eventb.core.identifier="ADOPI"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="Y" org.eventb.core.identifier="BELGU"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="Z" org.eventb.core.identifier="RIPAM"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="[" org.eventb.core.identifier="ESEBA"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="\" org.eventb.core.identifier="INREX"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="]" org.eventb.core.identifier="LUNIP"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="^" org.eventb.core.identifier="NOSLA"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="_" org.eventb.core.identifier="OGRAS"/>
+</org.eventb.core.contextFile>
