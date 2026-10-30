@@ -13,12 +13,19 @@ Each scenario animates `M4_Dublin` with ProB on the data of `C4_Dublin` and reac
 
 ## Contents
 
-- `captures/`: full-size ProB captures, named `CSn_*`.
-- `traces/`: ProB traces (`*.prob2trace`) that replay each scenario in ProB2-UI (`Load trace`).
+- `videos/`: ProB animations recorded directly in Rodin (sped up between events, captions give the event, the predicate and the model time).
+  - `CS1_CS2.mp4`: CS1 (three Light aircraft entering through OSGAR) then CS2 (`Direct_To` of A6 refused, then accepted).
+  - `CS3_CS4.mp4`: CS3 (`Touchdown` refused then enabled after the 60 s gap) and CS4 (runway status and lights change together).
+  - CS5 and CS6 clips: to be added.
 
 ## Replaying a scenario
 
-1. Open `Verif/M4_Dublin` in Rodin with ProB, or load the machine in ProB2-UI.
-2. Set `DEFAULT_SETSIZE` to 9 so that the abstract set `AIRCRAFTS` has enough elements for the scenario.
+1. Open `Verif/M4_Dublin` in Rodin with ProB.
+2. Set `DEFAULT_SETSIZE` to 9 so that the abstract set `AIRCRAFTS` has enough elements.
 3. Start with `SETUP_CONTEXT`, then `INITIALISATION`.
-4. Load the trace of the case in the `Trace` view and replay it.
+4. Choose the events as in the video. For `Entry_in_TMA`, fix the scenario with a predicate such as `aircraft = AIRCRAFTS1 ∧ brand = Light ∧ entrytma = 0` (the predicate is shown in the video caption).
+5. Use `tick_tock` to advance time; "Max. nr. events reached" in ProB is only the animation limit, not an error.
+
+## Oslo
+
+`C4_Oslo` and `M4_OSLO` only instantiate the generic model. Animation and model checking were done on Dublin.
