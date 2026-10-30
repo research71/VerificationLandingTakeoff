@@ -10,6 +10,7 @@ The safety requirements drawn from aviation standards are formalised as invarian
 
 ```
 Verif/        Rodin project: contexts, machines, proofs
+scenarios/    ProB animation scenarios of the six critical cases (captures, traces)
 docs/         Figures used in this README
 ```
 
@@ -39,6 +40,27 @@ An instance consists of a context that extends `C3` and a machine that sees this
 The figure shows the waypoints, the legs and the merge points of each instance, as described in the instance contexts (coordinates in model units).
 
 The separations by wake turbulence category are taken from the literature. The values of `RwySep` and `DepDepSep` are assumptions of the optimisation article used as the source, not values imposed by a standard.
+
+## Model checking of the Dublin instance
+
+`M4_Dublin` is the bounded instance used for ProB model checking. The time is bounded by a constant `Horizon` (1200 s): when it is reached, only the event `end_horizon` remains possible, so that the state space is finite. The instance contains two aircraft, which is the size ProB gives to the abstract set `AIRCRAFTS` by default (preference `DEFAULT_SETSIZE`).
+
+ProB explores all reachable states with the deadlock check and the invariant check (mixed breadth-first and depth-first search):
+
+| Measure | Value |
+|---|---:|
+| States processed | 4,589,615 |
+| Transitions | 10,051,701 |
+| Deadlocked states | 0 |
+| Invariant violations | 0 |
+| Run time | 2,539 s |
+| Memory | 11,862 MiB |
+
+This check complements the proofs: the proofs hold for any number of aircraft, whereas the model checking covers this bounded instance only. To animate scenarios with more aircraft, increase `DEFAULT_SETSIZE` in the ProB preferences and reload the machine.
+
+## Animation scenarios
+
+The folder `scenarios/` describes the six critical cases animated with ProB on the Dublin data (requirements R1 to R6), with the captures and the traces that replay them. The paper shows a selection of these captures; the others are in this folder.
 
 ## Proofs
 
