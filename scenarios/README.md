@@ -13,6 +13,7 @@ Each scenario animates `M4_Dublin` with ProB on the data of `C4_Dublin` and reac
 
 ## Contents
 
+- `captures/`: the ProB screenshots used as figures in the paper (`S_CSn_*.png`; red icon = disabled event, green triangle = enabled event). `S_CS1.png` is the zoomed version with the variables of the three aircraft circled.
 - `videos/`: ProB animations recorded directly in Rodin (sped up between events, captions give the event, the predicate and the model time).
   - `CS1_CS2.mp4`: CS1 (three Light aircraft entering through OSGAR) then CS2 (`Direct_To` of A6 refused, then accepted).
   - `CS3_CS4.mp4`: CS3 (`Touchdown` refused then enabled after the 60 s gap) and CS4 (runway status and lights change together).
