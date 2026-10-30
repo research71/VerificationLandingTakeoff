@@ -19,7 +19,7 @@ Each scenario animates `M4_Dublin` with ProB on the data of `C4_Dublin` and reac
   - `CS3_CS4.mp4`: CS3 (`Touchdown` refused then enabled after the 60 s gap) and CS4 (runway status and lights change together).
   - `CS5_landing.mp4`: CS5, first order (take-off of A8, then `Touchdown` of A6 refused until 2237 s and enabled).
   - `CS6.mp4`: CS6 (A9 takes off at 1969 s, `Start_takingoff` of A8 refused until 2057 + 60 = 2117 s, then enabled).
-  - CS5, second order (landing then take-off, refused at 2374 s and enabled at 2400 s): clip to be added.
+  - CS5, second order (landing then take-off, refused at 2374 s and enabled at 2400 s): see `captures/S_CS5_takeoff_refused.png`.
 
 ## Replaying a scenario
 
