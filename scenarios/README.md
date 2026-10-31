@@ -32,4 +32,4 @@ Each scenario animates `M4_Dublin` with ProB on the data of `C4_Dublin` and reac
 
 ## Oslo
 
-`C4_Oslo` and `M4_OSLO` only instantiate the generic model. Animation and model checking were done on Dublin.
+`C4_Oslo` and `M4_OSLO` only instantiate the generic model. Animation was done on Dublin.

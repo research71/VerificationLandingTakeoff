@@ -10,7 +10,7 @@ The safety requirements drawn from aviation standards are formalised as invarian
 
 ```
 Verif/        Rodin project: contexts, machines, proofs
-scenarios/    ProB animation scenarios of the six critical cases (captures, traces)
+scenarios/    ProB animation scenarios of the six critical cases (videos, captures)
 docs/         Figures used in this README
 ```
 
@@ -41,26 +41,13 @@ The figure shows the waypoints, the legs and the merge points of each instance, 
 
 The separations by wake turbulence category are taken from the literature. The values of `RwySep` and `DepDepSep` are assumptions of the optimisation article used as the source, not values imposed by a standard.
 
-## Model checking of the Dublin instance
+## Animating the Dublin instance
 
-`M4_Dublin` is the bounded instance used for ProB model checking. The time is bounded by a constant `Horizon` (1200 s): when it is reached, only the event `end_horizon` remains possible, so that the state space is finite. The instance contains two aircraft, which is the size ProB gives to the abstract set `AIRCRAFTS` by default (preference `DEFAULT_SETSIZE`).
-
-ProB explores all reachable states with the deadlock check and the invariant check (mixed breadth-first and depth-first search):
-
-| Measure | Value |
-|---|---:|
-| States processed | 4,589,615 |
-| Transitions | 10,051,701 |
-| Deadlocked states | 0 |
-| Invariant violations | 0 |
-| Run time | 2,539 s |
-| Memory | 11,862 MiB |
-
-This check complements the proofs: the proofs hold for any number of aircraft, whereas the model checking covers this bounded instance only. To animate scenarios with more aircraft, increase `DEFAULT_SETSIZE` in the ProB preferences and reload the machine.
+`M4_Dublin` is the machine used to animate the scenarios with ProB. ProB gives the abstract set `AIRCRAFTS` a default size (preference `DEFAULT_SETSIZE`): to animate scenarios with more aircraft, increase it in the ProB preferences (9 for the scenarios of this repository) and reload the machine.
 
 ## Animation scenarios
 
-The folder `scenarios/` describes the six critical cases animated with ProB on the Dublin data (requirements R1 to R6), with the captures and the traces that replay them. The paper shows a selection of these captures; the others are in this folder.
+The folder `scenarios/` describes the six critical cases animated with ProB on the Dublin data (requirements R1 to R6), with the animation videos and the screenshots (figures and detailed captures). The paper shows a selection of these captures; the others are in this folder.
 
 ## Proofs
 
